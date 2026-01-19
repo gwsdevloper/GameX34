@@ -1,106 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>GameX34 – Play. Win. Repeat.</title>
 
 <style>
 :root{
   --bg:#0b0810;
-  --panel:#12101a;
+  --card:#15111f;
   --accent:#ff9f1c;
-  --muted:#9b92a8;
+  --text:#ffffff;
+  --muted:#a7a0b3;
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
 body{
   margin:0;
-  font-family:system-ui,Arial,sans-serif;
   background:var(--bg);
-  color:#fff;
+  color:var(--text);
+  font-family:system-ui,-apple-system,Arial,sans-serif;
 }
 
-/* HEADER */
+/* ===== HEADER ===== */
 header{
+  position:sticky;
+  top:0;
+  z-index:50;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:14px 16px;
+  padding:12px 14px;
+  background:#0f0b18;
+  border-bottom:1px solid rgba(255,255,255,.05);
 }
 
 .logo{
   display:flex;
   align-items:center;
   gap:8px;
-  font-size:18px;
-  font-weight:700;
+  font-size:17px;
+  font-weight:900;
 }
 
 .download-btn{
   padding:10px 14px;
+  font-size:13px;
   border-radius:10px;
   background:linear-gradient(90deg,var(--accent),#ffb86b);
-  color:#111;
-  text-decoration:none;
-  font-weight:700;
-  font-size:14px;
-}
-
-/* HERO */
-.hero{
-  text-align:center;
-  padding:28px 16px;
-}
-
-.hero h2{
-  font-size:28px;
-  margin-bottom:8px;
-}
-
-.hero p{
-  font-size:14px;
-  color:var(--muted);
-}
-
-.cta-btn{
-  display:block;
-  margin:18px auto 0;
-  width:100%;
-  max-width:320px;
-  padding:14px;
-  border-radius:12px;
-  background:linear-gradient(180deg,#ffb04a,var(--accent));
   color:#111;
   font-weight:800;
   text-decoration:none;
 }
 
-/* CONTAINER */
-.container{
-  padding:0 16px;
+/* ===== HERO ===== */
+.hero{
+  padding:26px 14px 18px;
+  text-align:center;
 }
 
-/* PANELS */
-.panel{
-  background:var(--panel);
-  padding:16px;
-  border-radius:12px;
+.hero h1{
+  font-size:26px;
+  margin:0 0 6px;
+  color:#ffd09a;
+}
+
+.hero p{
+  font-size:14px;
+  margin:0;
+  color:var(--muted);
+}
+
+/* DOWNLOAD BUTTON */
+.cta-btn{
+  margin:18px auto 0;
+  display:block;
+  width:100%;
+  max-width:340px;
+  padding:15px;
+  border-radius:14px;
+  background:linear-gradient(180deg,#ffb04a,var(--accent));
+  color:#111;
+  font-weight:900;
+  text-decoration:none;
+  font-size:15px;
+}
+
+/* APP PREVIEW */
+.app-preview{
+  margin-top:20px;
+  display:flex;
+  justify-content:center;
+}
+
+.app-preview img{
+  width:100%;
+  max-width:260px;
+  border-radius:26px;
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.8),
+    0 0 35px rgba(46,166,255,.15);
+}
+
+/* ===== CONTENT ===== */
+.container{
+  padding:0 14px 80px;
+}
+
+.card{
+  background:var(--card);
+  border-radius:14px;
+  padding:14px;
   margin-bottom:14px;
 }
 
-/* WITHDRAW LIST */
-.withdraw-list p{
+.card h3{
+  margin:0 0 10px;
+  font-size:16px;
+}
+
+/* WITHDRAW */
+.withdraw p{
   display:flex;
   justify-content:space-between;
   font-size:14px;
   padding:8px 0;
-  border-bottom:1px solid rgba(255,255,255,0.05);
+  border-bottom:1px solid rgba(255,255,255,.05);
 }
-
-.withdraw-list p:last-child{
-  border-bottom:none;
-}
+.withdraw p:last-child{border:none}
 
 /* MODES */
 .modes{
@@ -109,14 +140,12 @@ header{
   gap:10px;
 }
 
-.mode-card{
-  background:#181421;
+.mode{
+  background:#1b1628;
   padding:14px;
-  border-radius:10px;
-}
-
-.mode-card h4{
-  margin:0 0 4px;
+  border-radius:12px;
+  font-size:14px;
+  font-weight:700;
 }
 
 /* STATS */
@@ -124,36 +153,29 @@ header{
   display:grid;
   grid-template-columns:1fr;
   gap:10px;
-  margin-top:16px;
 }
 
-.stat-item{
-  background:#181421;
+.stat{
+  background:#1b1628;
+  border-radius:12px;
   padding:14px;
-  border-radius:10px;
   text-align:center;
+  font-weight:800;
 }
 
 /* FOOTER */
 footer{
+  padding:16px;
   text-align:center;
-  padding:20px 14px;
-  font-size:13px;
+  font-size:12px;
   color:var(--muted);
 }
 
-/* DESKTOP RESPONSIVE */
-@media (min-width:768px){
-  .hero h2{font-size:34px}
-  .cta-btn{display:inline-block;width:auto;padding:14px 28px}
-
-  .modes{
-    grid-template-columns:repeat(3,1fr);
-  }
-
-  .stats{
-    grid-template-columns:repeat(3,1fr);
-  }
+/* ===== TABLET / DESKTOP ===== */
+@media(min-width:768px){
+  .hero h1{font-size:34px}
+  .modes{grid-template-columns:repeat(3,1fr)}
+  .stats{grid-template-columns:repeat(3,1fr)}
 }
 </style>
 </head>
@@ -162,12 +184,13 @@ footer{
 
 <header>
   <div class="logo">
-    <svg width="26" height="26" viewBox="0 0 24 24">
+    <svg width="24" height="24" viewBox="0 0 24 24">
       <rect width="24" height="24" rx="6" fill="#1b1321"/>
       <path d="M6 12l4 3 8-6" stroke="#2ea6ff" stroke-width="1.4" fill="none"/>
     </svg>
     GameX34
   </div>
+
   <a class="download-btn"
      href="https://ga-fs.primexop.com/12506/androidBuilds/gamex34V1.apk">
      Download
@@ -175,44 +198,43 @@ footer{
 </header>
 
 <section class="hero">
-  <h2>Play. Win. Repeat.</h2>
-  <p>Join GameX34 Free Fire tournaments — Low entry, Fast payouts.</p>
+  <h1>Play. Win. Repeat.</h1>
+  <p>Join GameX34 Free Fire tournaments & win real money</p>
 
   <a class="cta-btn"
      href="https://ga-fs.primexop.com/12506/androidBuilds/gamex34V1.apk">
      ↓ Download App
   </a>
-    <!-- APP PREVIEW IMAGE -->
+
   <div class="app-preview">
     <img src="Phone.png" alt="GameX34 App Preview">
   </div>
-
 </section>
 
 <div class="container">
 
-  <div class="panel">
+  <div class="card">
     <h3>Recent Withdrawals</h3>
-    <div class="withdraw-list">
+    <div class="withdraw">
       <p><span>anugaming</span><span>₹200</span></p>
       <p><span>Vikas</span><span>₹150</span></p>
       <p><span>ppgamer</span><span>₹200</span></p>
     </div>
   </div>
 
-  <div class="panel">
+  <div class="card">
     <h3>Tournament Modes</h3>
     <div class="modes">
-      <div class="mode-card"><h4>Per Kill BR</h4><p>Earn per kill</p></div>
-      <div class="mode-card"><h4>BR Survival</h4><p>Top players win</p></div>
-      <div class="mode-card"><h4>1v1</h4><p>Quick duels</p></div>
+      <div class="mode">Per Kill BR</div>
+      <div class="mode">BR Survival</div>
+      <div class="mode">1v1 Duels</div>
     </div>
   </div>
 
   <div class="stats">
-    <div class="stat-item">100k+ Users</div>
-    <div class="stat-item">5M+ Matches</div>
-    <div class="stat-item">₹78L+ Winnings</div>
+    <div class="stat">100K+ Users</div>
+    <div class="stat">5M+ Matches</div>
+    <div class="stat">₹78L+ Winnings</div>
   </div>
 
 </div>
